@@ -6,6 +6,16 @@ import {
   Facebook, Instagram, Twitter, Youtube, Send,
   ArrowRight, CheckCircle, Heart, Truck, Shield
 } from 'lucide-react';
+import tea1 from '../img/0ACF471B-D9F1-4A76-ADD6-66862EB42491.jpeg';
+import tea2 from '../img/1AEA4642-9B7D-4F02-A28E-C6A7A1655F34.jpeg';
+import tea3 from '../img/3EA92A27-1654-4E32-BC40-F05B5EBBCBC2.jpeg';
+import tea4 from '../img/5D33CAC5-F157-4A63-8162-F8E5C947B644.jpeg';
+import tea5 from '../img/48F30EE9-0F50-41B3-AC67-BA948035B532.jpeg';
+import tea6 from '../img/58BA8DE1-24B0-4FBE-8298-3C6285266811.jpeg';
+import tea7 from '../img/142F17A8-A49E-467C-85EB-711034444F04.jpeg';
+import tea8 from '../img/0ACF471B-D9F1-4A76-ADD6-66862EB42491.jpeg';
+import tea9 from '../img/0ACF471B-D9F1-4A76-ADD6-66862EB42491.jpeg';
+import tea10 from '../img/0ACF471B-D9F1-4A76-ADD6-66862EB42491.jpeg';
 
 const Tea = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -15,17 +25,17 @@ const Tea = () => {
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      setAnimatedStats({ customers: 50000, locations: 25, varieties: 75 });
+      setAnimatedStats({ customers: 6000, locations: 1, varieties: 5 });
     }, 1000);
     return () => clearTimeout(timer);
   }, []);
 
   const teas = [
     {
-      name: "Earl Grey Supreme",
+      name: "Adarkak Tea",
       price: "$24.99",
       originalPrice: "$29.99",
-      image: "/api/placeholder/300/300",
+      image: tea1,
       rating: 4.9,
       reviews: 234,
       description: "Classic bergamot blend with cornflower petals and lavender notes",
@@ -33,10 +43,10 @@ const Tea = () => {
       tags: ["Black Tea", "Citrus", "Floral"]
     },
     {
-      name: "Dragon Well Green",
+      name: "Chocolate Tea",
       price: "$28.99",
       originalPrice: "$32.99",
-      image: "/api/placeholder/300/300",
+      image: tea2,
       rating: 4.8,
       reviews: 189,
       description: "Premium Chinese green tea with delicate umami flavor profile",
@@ -44,10 +54,10 @@ const Tea = () => {
       tags: ["Green Tea", "Light", "Organic"]
     },
     {
-      name: "Himalayan Gold",
+      name: "Rose Tea",
       price: "$32.99",
       originalPrice: "$37.99",
-      image: "/api/placeholder/300/300",
+      image: tea3,
       rating: 4.9,
       reviews: 156,
       description: "High-altitude black tea with golden tips and muscatel notes",
@@ -55,10 +65,10 @@ const Tea = () => {
       tags: ["Black Tea", "Bold", "Premium"]
     },
     {
-      name: "Chamomile Dreams",
+      name: "Elachi Tea",
       price: "$22.99",
       originalPrice: "$26.99",
-      image: "/api/placeholder/300/300",
+      image: tea4,
       rating: 4.7,
       reviews: 298,
       description: "Soothing herbal blend with honey notes for peaceful evenings",
@@ -66,10 +76,10 @@ const Tea = () => {
       tags: ["Herbal", "Caffeine-Free", "Relaxing"]
     },
     {
-      name: "Jasmine Phoenix Pearls",
+      name: "Masala Tea",
       price: "$45.99",
       originalPrice: "$52.99",
-      image: "/api/placeholder/300/300",
+      image: tea5,
       rating: 4.9,
       reviews: 87,
       description: "Hand-rolled green tea pearls scented with fresh jasmine flowers",
@@ -80,7 +90,7 @@ const Tea = () => {
       name: "Royal Pu-erh",
       price: "$38.99",
       originalPrice: "$44.99",
-      image: "/api/placeholder/300/300",
+      image: tea6,
       rating: 4.8,
       reviews: 134,
       description: "Aged dark tea with rich, earthy complexity and smooth finish",
@@ -93,21 +103,21 @@ const Tea = () => {
     {
       name: "Sarah Chen",
       role: "Tea Enthusiast",
-      image: "/api/placeholder/80/80",
+      image: tea7,
       rating: 5,
       text: "TEA BREW has completely transformed my daily tea ritual. The Earl Grey Supreme is absolutely divine!"
     },
     {
-      name: "Marcus Johnson",
+      name: "Lemon Tea",
       role: "Restaurant Owner",
-      image: "/api/placeholder/80/80",
+      image: tea8,
       rating: 5,
       text: "We've been serving TEA BREW teas in our restaurant for 2 years. Our customers love the quality and variety."
     },
     {
       name: "Emily Rodriguez",
       role: "Wellness Coach",
-      image: "/api/placeholder/80/80",
+      image: tea9,
       rating: 5,
       text: "The herbal blends are perfect for my clients. Pure, organic, and incredibly soothing."
     }
@@ -226,9 +236,6 @@ const Tea = () => {
               Order Now
               <ArrowRight className="tea-btn-arrow" />
             </button>
-            <button className="tea-secondary-btn">
-              Discover Blends
-            </button>
           </div>
           
           {/* Scroll indicator */}
@@ -280,9 +287,6 @@ const Tea = () => {
       <section className="tea-products">
         <div className="tea-products-container">
           <div className="tea-section-header">
-            <span className="tea-section-badge">
-              Premium Collection
-            </span>
             <h2 className="tea-section-title">Featured Blends</h2>
             <p className="tea-section-description">
               Discover our signature collection of premium teas, each blend telling a unique story of flavor, tradition, and craftsmanship from tea gardens around the world.
@@ -429,16 +433,10 @@ const Tea = () => {
                   <div className="tea-about-stat-icon-container">
                     <Coffee className="tea-about-stat-icon" />
                   </div>
-                  <div className="tea-about-stat-value">75+</div>
+                  <div className="tea-about-stat-value">5+</div>
                   <div className="tea-about-stat-label">Tea Varieties</div>
                 </div>
-                <div className="tea-about-stat">
-                  <div className="tea-about-stat-icon-container">
-                    <Award className="tea-about-stat-icon" />
-                  </div>
-                  <div className="tea-about-stat-value">25</div>
-                  <div className="tea-about-stat-label">Awards Won</div>
-                </div>
+            
                 <div className="tea-about-stat">
                   <div className="tea-about-stat-icon-container">
                     <Leaf className="tea-about-stat-icon" />
@@ -530,8 +528,8 @@ const Tea = () => {
                   <MapPin className="tea-contact-icon" />
                 </div>
                 <div>
-                  <h3 className="tea-contact-info-title">Visit Our Flagship Store</h3>
-                  <p className="tea-contact-info-text">123 Tea Garden Lane<br />San Francisco, CA 94102</p>
+                  <h3 className="tea-contact-info-title">Visit Our Store</h3>
+                  <p className="tea-contact-info-text">Dhobi bazaar Bathinda, 151001<br /></p>
                 </div>
               </div>
               
@@ -541,11 +539,11 @@ const Tea = () => {
                 </div>
                 <div>
                   <h3 className="tea-contact-info-title">Call Us</h3>
-                  <p className="tea-contact-info-text">+1 (555) 123-BREW<br />Mon-Fri: 8AM-8PM PST</p>
+                  <p className="tea-contact-info-text">+91 7973137104<br />+91 6283946618 <br/> </p>
                 </div>
               </div>
               
-              <div className="tea-contact-info-item">
+             {/* <div className="tea-contact-info-item">
                 <div className="tea-contact-icon-container">
                   <Mail className="tea-contact-icon" />
                 </div>
@@ -553,7 +551,7 @@ const Tea = () => {
                   <h3 className="tea-contact-info-title">Email Us</h3>
                   <p className="tea-contact-info-text">hello@teabrew.com<br />support@teabrew.com</p>
                 </div>
-              </div>
+              </div>*/}
               
               <div className="tea-contact-info-item">
                 <div className="tea-contact-icon-container">
@@ -561,7 +559,7 @@ const Tea = () => {
                 </div>
                 <div>
                   <h3 className="tea-contact-info-title">Store Hours</h3>
-                  <p className="tea-contact-info-text">Mon-Sat: 7AM-9PM<br />Sunday: 8AM-7PM</p>
+                  <p className="tea-contact-info-text">Mon-Sun: 8AM-11PM<br /></p>
                 </div>
               </div>
             </div>
@@ -627,7 +625,7 @@ const Tea = () => {
       </section>
 
       {/* Newsletter CTA Section */}
-      <section className="tea-newsletter">
+   {/*   <section className="tea-newsletter">
         <div className="tea-newsletter-container">
           <div className="tea-newsletter-card">
             <h2 className="tea-newsletter-title">
@@ -652,7 +650,7 @@ const Tea = () => {
             </p>
           </div>
         </div>
-      </section>
+      </section>*/}
 
       {/* Enhanced Footer with Animations */}
       <footer className="tea-footer">
@@ -757,7 +755,7 @@ const Tea = () => {
             </div>
             
             {/* Newsletter Section in Footer */}
-            <div className="tea-footer-newsletter">
+           {/*<div className="tea-footer-newsletter">
               <div className="tea-footer-newsletter-container">
                 <h3 className="tea-footer-newsletter-title">Stay Steeped in the Latest</h3>
                 <p className="tea-footer-newsletter-text">Get brewing tips, new product launches, and exclusive offers delivered to your inbox.</p>
@@ -773,7 +771,7 @@ const Tea = () => {
                   </button>
                 </div>
               </div>
-            </div>
+            </div>*/}
           </div>
           
           {/* Bottom Footer */}
