@@ -1,133 +1,203 @@
 import React, { useState, useEffect } from 'react';
 import '../css/tea.css';
 import { 
-  Menu, X, ShoppingBag, Star, Leaf, Coffee, Award, 
-  MapPin, Phone, Mail, Clock, Users, Globe, 
+  Menu, X, Star, Leaf, Coffee, 
+  MapPin, Phone, Clock, Users, 
   Facebook, Instagram, Twitter, Youtube, Send,
   ArrowRight, CheckCircle, Heart, Truck, Shield
 } from 'lucide-react';
-import tea1 from '../img/0ACF471B-D9F1-4A76-ADD6-66862EB42491.jpeg';
-import tea2 from '../img/1AEA4642-9B7D-4F02-A28E-C6A7A1655F34.jpeg';
-import tea3 from '../img/3EA92A27-1654-4E32-BC40-F05B5EBBCBC2.jpeg';
-import tea4 from '../img/5D33CAC5-F157-4A63-8162-F8E5C947B644.jpeg';
-import tea5 from '../img/48F30EE9-0F50-41B3-AC67-BA948035B532.jpeg';
-import tea6 from '../img/58BA8DE1-24B0-4FBE-8298-3C6285266811.jpeg';
-import tea7 from '../img/142F17A8-A49E-467C-85EB-711034444F04.jpeg';
-import tea8 from '../img/0ACF471B-D9F1-4A76-ADD6-66862EB42491.jpeg';
-import tea9 from '../img/0ACF471B-D9F1-4A76-ADD6-66862EB42491.jpeg';
-import tea10 from '../img/0ACF471B-D9F1-4A76-ADD6-66862EB42491.jpeg';
+import tea1 from '../img/IMG_9130.JPG';
+import tea2 from '../img/IMG_9125.JPG';
+import tea3 from '../img/IMG_9126.JPG';
+import tea4 from '../img/IMG_9127.JPG';
+import tea5 from '../img/IMG_9129.JPG';
+import tea6 from '../img/IMG_9131.JPG';
+import tea7 from '../img/IMG_9136.JPG';
+import tea8 from '../img/IMG_9133.JPG';
+import tea10 from '../img/lemonades_9197.JPG';
+import tea11 from '../img/IMG_9135.JPG';
+import ansh from '../img/ansh.jpeg';
+import amrinder from '../img/amrinder.jpeg';
+import gurvansh from '../img/gurvansh.jpeg';
 
 const Tea = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [animatedStats, setAnimatedStats] = useState({ customers: 0, locations: 0, varieties: 0 });
   const [contactForm, setContactForm] = useState({ name: '', email: '', message: '' });
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [errorMessage, setErrorMessage] = useState('');
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      setAnimatedStats({ customers: 6000, locations: 1, varieties: 5 });
+      setAnimatedStats({ customers: 6000, locations: 1, varieties: 10 });
     }, 1000);
     return () => clearTimeout(timer);
   }, []);
 
   const teas = [
     {
-      name: "Adarkak Tea",
-      price: "$24.99",
-      originalPrice: "$29.99",
+      name: "Adrak Tea",
+      price: "₹20",
+      originalPrice: "₹30",
       image: tea1,
       rating: 4.9,
       reviews: 234,
-      description: "Classic bergamot blend with cornflower petals and lavender notes",
+      description: "Classic ginger-infused black tea with a spicy, warming finish",
       bestseller: true,
-      tags: ["Black Tea", "Citrus", "Floral"]
+      tags: ["Black Tea", "Spicy", "Traditional"]
     },
     {
       name: "Chocolate Tea",
-      price: "$28.99",
-      originalPrice: "$32.99",
+      price: "₹20",
+      originalPrice: "₹30",
       image: tea2,
       rating: 4.8,
       reviews: 189,
-      description: "Premium Chinese green tea with delicate umami flavor profile",
+      description: "Rich chocolate-flavored green tea with a smooth, indulgent taste",
       organic: true,
-      tags: ["Green Tea", "Light", "Organic"]
+      tags: ["Green Tea", "Sweet", "Organic"]
     },
     {
       name: "Rose Tea",
-      price: "$32.99",
-      originalPrice: "$37.99",
+      price: "₹20",
+      originalPrice: "₹30",
       image: tea3,
       rating: 4.9,
       reviews: 156,
-      description: "High-altitude black tea with golden tips and muscatel notes",
+      description: "Delicate rose-infused black tea with floral undertones",
       premium: true,
-      tags: ["Black Tea", "Bold", "Premium"]
+      tags: ["Black Tea", "Floral", "Premium"]
     },
     {
-      name: "Elachi Tea",
-      price: "$22.99",
-      originalPrice: "$26.99",
+      name: "Elaichi Tea",
+      price: "₹20",
+      originalPrice: "₹30",
       image: tea4,
       rating: 4.7,
       reviews: 298,
-      description: "Soothing herbal blend with honey notes for peaceful evenings",
+      description: "Cardamom-spiced herbal tea, soothing and aromatic",
       caffeineFree: true,
-      tags: ["Herbal", "Caffeine-Free", "Relaxing"]
+      tags: ["Herbal", "Caffeine-Free", "Aromatic"]
     },
     {
       name: "Masala Tea",
-      price: "$45.99",
-      originalPrice: "$52.99",
+      price: "₹20",
+      originalPrice: "₹30",
       image: tea5,
       rating: 4.9,
       reviews: 87,
-      description: "Hand-rolled green tea pearls scented with fresh jasmine flowers",
+      description: "Bold blend of spices and black tea, a classic Indian chai",
       limitedEdition: true,
-      tags: ["Green Tea", "Floral", "Artisan"]
+      tags: ["Black Tea", "Spicy", "Artisan"]
     },
     {
-      name: "Royal Pu-erh",
-      price: "$38.99",
-      originalPrice: "$44.99",
+      name: "Lemonade",
+      price: "₹50",
+      originalPrice: "₹60",
+      image: tea10,
+      rating: 4.8,
+      reviews: 134,
+      description: "Refreshing lemon-infused beverage with a zesty kick",
+      tags: ["Non-Tea", "Citrus", "Refreshing"]
+    },
+    {
+      name: "Watermelon Mojito",
+      price: "₹50",
+      originalPrice: "₹60",
       image: tea6,
       rating: 4.8,
       reviews: 134,
-      description: "Aged dark tea with rich, earthy complexity and smooth finish",
-      aged: true,
-      tags: ["Pu-erh", "Earthy", "Aged"]
+      description: "Cool watermelon and mint-infused drink, perfect for summer",
+      tags: ["Non-Tea", "Fruity", "Refreshing"]
+    },
+    {
+      name: "Black Currant Mojito",
+      price: "₹50",
+      originalPrice: "₹60",
+      image: tea8,
+      rating: 4.8,
+      reviews: 134,
+      description: "Tangy black currant mojito with a vibrant, fruity twist",
+      tags: ["Non-Tea", "Fruity", "Refreshing"]
+    },
+    {
+      name: "Mango Mojito",
+      price: "₹50",
+      originalPrice: "₹60",
+      image: tea11,
+      rating: 4.8,
+      reviews: 134,
+      description: "Sweet mango-infused mojito with a tropical flair",
+      tags: ["Non-Tea", "Fruity", "Refreshing"]
+    },
+    {
+      name: "Virgin Mojito",
+      price: "₹50",
+      originalPrice: "₹60",
+      image: tea7,
+      rating: 4.8,
+      reviews: 134,
+      description: "Classic mint and lime mojito, crisp and non-alcoholic",
+      tags: ["Non-Tea", "Mint", "Refreshing"]
     }
   ];
 
   const testimonials = [
     {
-      name: "Sarah Chen",
-      role: "Tea Enthusiast",
-      image: tea7,
-      rating: 5,
-      text: "TEA BREW has completely transformed my daily tea ritual. The Earl Grey Supreme is absolutely divine!"
+      name: "Ansh Sidhu",
+      role: "Founder",
+      image: ansh,
+      text: "At TEA BREW, we aim to revive the art of tea-making, blending tradition with innovation to create unforgettable flavors."
     },
     {
-      name: "Lemon Tea",
-      role: "Restaurant Owner",
-      image: tea8,
-      rating: 5,
-      text: "We've been serving TEA BREW teas in our restaurant for 2 years. Our customers love the quality and variety."
+      name: "Amrinder Singh",
+      role: "Co-founder",
+      image: amrinder,
+      text: "Our commitment to quality and sustainability drives every cup we serve, bringing joy to tea lovers in Bathinda and beyond."
     },
     {
-      name: "Emily Rodriguez",
-      role: "Wellness Coach",
-      image: tea9,
-      rating: 5,
-      text: "The herbal blends are perfect for my clients. Pure, organic, and incredibly soothing."
+      name: "Gurvansh Singh",
+      role: "Operations Head",
+      image: gurvansh,
+      text: "Every beverage at TEA BREW is crafted with precision and passion, ensuring a delightful experience for our community."
     }
   ];
 
-  const handleContactSubmit = (e) => {
+  const handleContactSubmit = async (e) => {
     e.preventDefault();
-    setIsSubmitted(true);
-    setTimeout(() => setIsSubmitted(false), 3000);
-    setContactForm({ name: '', email: '', message: '' });
+    if (!contactForm.email.includes('@')) {
+      setErrorMessage('Please enter a valid email address.');
+      return;
+    }
+
+    const formData = new FormData();
+    formData.append('name', contactForm.name);
+    formData.append('email', contactForm.email);
+    formData.append('message', contactForm.message);
+
+    try {
+      const response = await fetch('https://formspree.io/f/YOUR_FORMSPREE_ID', {
+        method: 'POST',
+        body: formData,
+        headers: {
+          'Accept': 'application/json'
+        }
+      });
+
+      if (response.ok) {
+        setIsSubmitted(true);
+        setErrorMessage('');
+        setTimeout(() => {
+          setIsSubmitted(false);
+          setContactForm({ name: '', email: '', message: '' });
+        }, 3000);
+      } else {
+        throw new Error('Form submission failed');
+      }
+    } catch (error) {
+      setErrorMessage('Failed to send message. Please try again later.');
+      console.error('Formspree error:', error);
+    }
   };
 
   return (
@@ -138,21 +208,21 @@ const Tea = () => {
           <div className="tea-nav-content">
             <div className="tea-brand">
               <div className="tea-brand-icon">
-                <Leaf className="tea-leaf-icon" />
+                <Leaf className="tea-leaf-icon" aria-hidden="true" />
                 <div className="tea-brand-dot"></div>
               </div>
               <span className="tea-brand-name">TEA BREW</span>
-              <span className="tea-premium-badge">Premium</span>
             </div>
             
             {/* Desktop Navigation */}
             <div className="tea-desktop-nav">
               <div className="tea-nav-links">
-                {['Menu', 'About', 'Locations', 'Rewards', 'Blog'].map((item) => (
+                {['Menu', 'About', 'Contact'].map((item) => (
                   <a 
                     key={item}
-                    href="#" 
+                    href={`#${item.toLowerCase()}`}
                     className="tea-nav-link"
+                    aria-label={`Navigate to ${item} section`}
                   >
                     {item}
                     <span className="tea-nav-underline"></span>
@@ -162,19 +232,12 @@ const Tea = () => {
             </div>
 
             <div className="tea-nav-actions">
-              <button className="tea-signin-btn">
-                Sign In
-              </button>
-              <div className="tea-cart-icon">
-                <ShoppingBag className="tea-shopping-bag" />
-                <span className="tea-cart-badge">3</span>
-              </div>
-              
-              {/* Mobile menu button */}
+           
               <div className="tea-mobile-menu-btn">
                 <button
                   onClick={() => setIsMenuOpen(!isMenuOpen)}
                   className="tea-menu-toggle"
+                  aria-label={isMenuOpen ? "Close menu" : "Open menu"}
                 >
                   {isMenuOpen ? <X className="tea-menu-icon" /> : <Menu className="tea-menu-icon" />}
                 </button>
@@ -187,59 +250,56 @@ const Tea = () => {
         {isMenuOpen && (
           <div className="tea-mobile-nav">
             <div className="tea-mobile-nav-links">
-              {['Menu', 'About', 'Locations', 'Rewards', 'Blog'].map((item) => (
+              {['Menu', 'About', 'Contact'].map((item) => (
                 <a 
                   key={item}
-                  href="#" 
+                  href={`#${item.toLowerCase()}`}
                   className="tea-mobile-nav-link"
+                  onClick={() => setIsMenuOpen(false)}
+                  aria-label={`Navigate to ${item} section`}
                 >
                   {item}
                 </a>
               ))}
+              <a 
+                href="#menu"
+                className="tea-mobile-nav-link"
+                onClick={() => setIsMenuOpen(false)}
+                aria-label="Shop Now"
+              >
+                Shop Now
+              </a>
             </div>
           </div>
         )}
       </nav>
 
       {/* Hero Section */}
-      <section className="tea-hero">
+      <section className="tea-hero" id="home">
         <div className="tea-hero-overlay"></div>
-        <div className="tea-hero-overlay-dark"></div>
         <img 
-          src="/api/placeholder/1920/1080" 
-          alt="Tea plantation" 
+          src="/images/tea-plantation.jpg" 
+          alt="Lush tea plantation with vibrant green leaves"
           className="tea-hero-image"
         />
-        
-        {/* Floating elements */}
-        <div className="tea-float-circle tea-float-1"></div>
-        <div className="tea-float-circle tea-float-2"></div>
-        <div className="tea-float-circle tea-float-3"></div>
-        
         <div className="tea-hero-content">
-          <div className="tea-hero-badge-container">
-            <span className="tea-hero-badge">
-              ✨ Premium Tea Collection 2025
-            </span>
-          </div>
           <h1 className="tea-hero-title">
-            Artisan Tea
-            <span className="tea-hero-highlight">
-              Crafted Daily
-            </span>
+            Discover Artisan Teas
           </h1>
           <p className="tea-hero-subtitle">
-            Experience the finest tea blends from around the world, carefully curated by master tea artisans for the perfect brew every time.
+            Savor the finest tea blends and refreshing beverages, crafted with tradition and passion.
           </p>
           <div className="tea-hero-buttons">
-            <button className="tea-primary-btn">
-              Order Now
+            <a href="#menu" className="tea-primary-btn">
+              Explore Menu
               <ArrowRight className="tea-btn-arrow" />
-            </button>
+            </a>
+            <a href="#contact" className="tea-secondary-btn">
+              Contact Us
+              <ArrowRight className="tea-btn-arrow" />
+            </a>
           </div>
-          
-          {/* Scroll indicator */}
-          <div className="tea-scroll-indicator">
+          <div className="tea-scroll-indicator" aria-hidden="true">
             <div className="tea-scroll-circle">
               <div className="tea-scroll-dot"></div>
             </div>
@@ -253,43 +313,43 @@ const Tea = () => {
           <div className="tea-features-grid">
             <div className="tea-feature-item">
               <div className="tea-feature-icon-container">
-                <Truck className="tea-feature-icon" />
+                <Truck className="tea-feature-icon" aria-hidden="true" />
               </div>
               <h3 className="tea-feature-title">Free Shipping</h3>
-              <p className="tea-feature-description">On orders over $50</p>
+              <p className="tea-feature-description">On orders over ₹500</p>
             </div>
             <div className="tea-feature-item">
               <div className="tea-feature-icon-container">
-                <Shield className="tea-feature-icon" />
+                <Shield className="tea-feature-icon" aria-hidden="true" />
               </div>
               <h3 className="tea-feature-title">Quality Guarantee</h3>
               <p className="tea-feature-description">100% satisfaction promise</p>
             </div>
             <div className="tea-feature-item">
               <div className="tea-feature-icon-container">
-                <Leaf className="tea-feature-icon" />
+                <Leaf className="tea-feature-icon" aria-hidden="true" />
               </div>
               <h3 className="tea-feature-title">Organic Certified</h3>
               <p className="tea-feature-description">Sustainably sourced</p>
             </div>
             <div className="tea-feature-item">
               <div className="tea-feature-icon-container">
-                <Heart className="tea-feature-icon" />
+                <Heart className="tea-feature-icon" aria-hidden="true" />
               </div>
               <h3 className="tea-feature-title">Expert Curated</h3>
-              <p className="tea-feature-description">By tea masters</p>
+              <p className="tea-feature-description">By tea artisans</p>
             </div>
           </div>
         </div>
       </section>
 
       {/* Featured Teas Section */}
-      <section className="tea-products">
+      <section className="tea-products" id="menu">
         <div className="tea-products-container">
           <div className="tea-section-header">
-            <h2 className="tea-section-title">Featured Blends</h2>
+            <h2 className="tea-section-title">Our Signature Menu</h2>
             <p className="tea-section-description">
-              Discover our signature collection of premium teas, each blend telling a unique story of flavor, tradition, and craftsmanship from tea gardens around the world.
+              Explore our curated selection of teas and refreshing beverages, crafted with love and tradition.
             </p>
           </div>
           
@@ -302,7 +362,7 @@ const Tea = () => {
                 <div className="tea-product-image-container">
                   <img 
                     src={tea.image} 
-                    alt={tea.name}
+                    alt={`${tea.name} beverage`}
                     className="tea-product-image"
                   />
                   {tea.bestseller && (
@@ -325,7 +385,10 @@ const Tea = () => {
                       Limited
                     </span>
                   )}
-                  <button className="tea-wishlist-btn">
+                  <button 
+                    className="tea-wishlist-btn" 
+                    aria-label={`Add ${tea.name} to wishlist`}
+                  >
                     <Heart className="tea-wishlist-icon" />
                   </button>
                 </div>
@@ -336,6 +399,7 @@ const Tea = () => {
                         <Star 
                           key={i} 
                           className={`tea-star ${i < Math.floor(tea.rating) ? 'tea-star-filled' : ''}`}
+                          aria-hidden="true"
                         />
                       ))}
                       <span className="tea-review-count">({tea.reviews})</span>
@@ -359,10 +423,7 @@ const Tea = () => {
                       <span className="tea-current-price">{tea.price}</span>
                       <span className="tea-original-price">{tea.originalPrice}</span>
                     </div>
-                    <button className="tea-add-to-cart-btn">
-                      Add to Cart
-                      <ArrowRight className="tea-cart-arrow" />
-                    </button>
+                 
                   </div>
                 </div>
               </div>
@@ -375,9 +436,9 @@ const Tea = () => {
       <section className="tea-stats">
         <div className="tea-stats-container">
           <div className="tea-stats-header">
-            <h2 className="tea-stats-title">Trusted Worldwide</h2>
+            <h2 className="tea-stats-title">Trusted by Tea Lovers</h2>
             <p className="tea-stats-subtitle">
-              Join thousands of tea lovers who have made TEA BREW their daily ritual
+              Join thousands who enjoy TEA BREW’s premium beverages daily.
             </p>
           </div>
           
@@ -386,78 +447,57 @@ const Tea = () => {
               <div className="tea-stat-value">
                 {animatedStats.customers.toLocaleString()}+
               </div>
-              <div className="tea-stat-label">Happy Customers</div>
-              <Users className="tea-stat-icon" />
+              <div className="tea-stat-label">What Our Founder Says</div>
+              <Users className="tea-stat-icon" aria-hidden="true" />
             </div>
             <div className="tea-stat-item">
               <div className="tea-stat-value">
-                {animatedStats.locations}+
+                {animatedStats.locations}
               </div>
-              <div className="tea-stat-label">Store Locations</div>
-              <MapPin className="tea-stat-icon" />
+              <div className="tea-stat-label">Store Location</div>
+              <MapPin className="tea-stat-icon" aria-hidden="true" />
             </div>
             <div className="tea-stat-item">
               <div className="tea-stat-value">
                 {animatedStats.varieties}+
               </div>
-              <div className="tea-stat-label">Tea Varieties</div>
-              <Coffee className="tea-stat-icon" />
+              <div className="tea-stat-label">Beverage Varieties</div>
+              <Coffee className="tea-stat-icon" aria-hidden="true" />
             </div>
           </div>
         </div>
       </section>
 
       {/* About Section */}
-      <section className="tea-about">
+      <section className="tea-about" id="about">
         <div className="tea-about-container">
           <div className="tea-about-grid">
             <div className="tea-about-content">
-              <span className="tea-about-badge">
-                Our Heritage
-              </span>
+              <span className="tea-about-badge">Our Heritage</span>
               <h2 className="tea-about-title">Our Story</h2>
               <div className="tea-about-text">
                 <p>
-                  Founded in the heart of tea country, TEA BREW began as a passionate quest to bring the world's finest teas directly to your cup. Our journey started with a simple belief: exceptional tea should be accessible to everyone.
+                  TEA BREW was born in the heart of Bathinda, with a mission to bring authentic, high-quality teas and beverages to every cup. Our passion drives us to source the finest ingredients sustainably.
                 </p>
                 <p>
-                  We work directly with tea gardens across the globe, from the misty highlands of Darjeeling to the ancient mountains of Fujian, ensuring fair trade practices and supporting local communities while maintaining the highest quality standards.
-                </p>
-                <p>
-                  Every blend is carefully crafted by our master tea artisans, who bring decades of experience and an unwavering commitment to excellence. We believe that great tea tells a story - of the land, the people, and the tradition behind every leaf.
+                  From traditional Indian chai to refreshing mojitos, each drink is crafted with care by our artisans, celebrating the rich heritage of flavors and community.
                 </p>
               </div>
               
               <div className="tea-about-stats">
                 <div className="tea-about-stat">
                   <div className="tea-about-stat-icon-container">
-                    <Coffee className="tea-about-stat-icon" />
+                    <Coffee className="tea-about-stat-icon" aria-hidden="true" />
                   </div>
-                  <div className="tea-about-stat-value">5+</div>
-                  <div className="tea-about-stat-label">Tea Varieties</div>
+                  <div className="tea-about-stat-value">10+</div>
+                  <div className="tea-about-stat-label">Beverage Varieties</div>
                 </div>
-            
                 <div className="tea-about-stat">
                   <div className="tea-about-stat-icon-container">
-                    <Leaf className="tea-about-stat-icon" />
+                    <Leaf className="tea-about-stat-icon" aria-hidden="true" />
                   </div>
                   <div className="tea-about-stat-value">100%</div>
                   <div className="tea-about-stat-label">Organic</div>
-                </div>
-              </div>
-            </div>
-            
-            <div className="tea-about-image-container">
-              <div className="tea-about-image-wrapper">
-                <img 
-                  src="/api/placeholder/600/500" 
-                  alt="Tea master at work"
-                  className="tea-about-image"
-                />
-                <div className="tea-about-image-overlay"></div>
-                <div className="tea-about-image-caption">
-                  <div className="tea-about-image-title">Master Tea Artisan</div>
-                  <div className="tea-about-image-subtitle">Crafting excellence since 1985</div>
                 </div>
               </div>
             </div>
@@ -469,12 +509,10 @@ const Tea = () => {
       <section className="tea-testimonials">
         <div className="tea-testimonials-container">
           <div className="tea-testimonials-header">
-            <span className="tea-testimonials-badge">
-              Customer Love
-            </span>
-            <h2 className="tea-testimonials-title">What Our Customers Say</h2>
+            <span className="tea-testimonials-badge">Founders' Vision</span>
+            <h2 className="tea-testimonials-title">What Our Founders Say</h2>
             <p className="tea-testimonials-subtitle">
-              Don't just take our word for it - hear from the tea lovers who make our community special
+              Meet the visionaries behind TEA BREW’s exceptional beverages.
             </p>
           </div>
           
@@ -487,18 +525,13 @@ const Tea = () => {
                 <div className="tea-testimonial-header">
                   <img 
                     src={testimonial.image}
-                    alt={testimonial.name}
+                    alt={`Portrait of ${testimonial.name}`}
                     className="tea-testimonial-avatar"
                   />
                   <div>
                     <div className="tea-testimonial-name">{testimonial.name}</div>
                     <div className="tea-testimonial-role">{testimonial.role}</div>
                   </div>
-                </div>
-                <div className="tea-testimonial-stars">
-                  {[...Array(testimonial.rating)].map((_, i) => (
-                    <Star key={i} className="tea-testimonial-star" />
-                  ))}
                 </div>
                 <p className="tea-testimonial-text">"{testimonial.text}"</p>
               </div>
@@ -508,76 +541,67 @@ const Tea = () => {
       </section>
 
       {/* Contact Form Section */}
-      <section className="tea-contact">
+      <section className="tea-contact" id="contact">
         <div className="tea-contact-container">
           <div className="tea-contact-header">
-            <span className="tea-contact-badge">
-              Get In Touch
-            </span>
+            <span className="tea-contact-badge">Get In Touch</span>
             <h2 className="tea-contact-title">Contact Us</h2>
             <p className="tea-contact-subtitle">
-              Have questions about our teas or need personalized recommendations? We'd love to hear from you.
+              Have questions or need recommendations? Reach out to us!
             </p>
           </div>
           
           <div className="tea-contact-grid">
-            {/* Contact Info */}
             <div className="tea-contact-info">
               <div className="tea-contact-info-item">
                 <div className="tea-contact-icon-container">
-                  <MapPin className="tea-contact-icon" />
+                  <MapPin className="tea-contact-icon" aria-hidden="true" />
                 </div>
                 <div>
                   <h3 className="tea-contact-info-title">Visit Our Store</h3>
-                  <p className="tea-contact-info-text">Dhobi bazaar Bathinda, 151001<br /></p>
+                  <p className="tea-contact-info-text"> Bathinda, Punjab 151001</p>
                 </div>
               </div>
               
               <div className="tea-contact-info-item">
                 <div className="tea-contact-icon-container">
-                  <Phone className="tea-contact-icon" />
+                  <Phone className="tea-contact-icon" aria-hidden="true" />
                 </div>
                 <div>
                   <h3 className="tea-contact-info-title">Call Us</h3>
-                  <p className="tea-contact-info-text">+91 7973137104<br />+91 6283946618 <br/> </p>
+                  <p className="tea-contact-info-text">
+                    <p href="tel:+917973137104">+91 7973137104</p><br />
+                    <p href="tel:+916283946618">+91 6283946618</p>
+                  </p>
                 </div>
               </div>
               
-             {/* <div className="tea-contact-info-item">
-                <div className="tea-contact-icon-container">
-                  <Mail className="tea-contact-icon" />
-                </div>
-                <div>
-                  <h3 className="tea-contact-info-title">Email Us</h3>
-                  <p className="tea-contact-info-text">hello@teabrew.com<br />support@teabrew.com</p>
-                </div>
-              </div>*/}
-              
               <div className="tea-contact-info-item">
                 <div className="tea-contact-icon-container">
-                  <Clock className="tea-contact-icon" />
+                  <Clock className="tea-contact-icon" aria-hidden="true" />
                 </div>
                 <div>
                   <h3 className="tea-contact-info-title">Store Hours</h3>
-                  <p className="tea-contact-info-text">Mon-Sun: 8AM-11PM<br /></p>
+                  <p className="tea-contact-info-text">Mon-Sun: 8AM-11PM</p>
                 </div>
               </div>
             </div>
             
-            {/* Contact Form */}
             <div className="tea-contact-form-container">
               {isSubmitted ? (
                 <div className="tea-contact-success">
-                  <CheckCircle className="tea-success-icon" />
+                  <CheckCircle className="tea-success-icon" aria-hidden="true" />
                   <h3 className="tea-success-title">Message Sent!</h3>
-                  <p className="tea-success-text">Thank you for reaching out. We'll get back to you within 24 hours.</p>
+                  <p className="tea-success-text">We'll get back to you within 24 hours.</p>
                 </div>
               ) : (
                 <form onSubmit={handleContactSubmit} className="tea-contact-form">
                   <div className="tea-form-group">
-                    <label className="tea-form-label">Your Name</label>
+                    <label className="tea-form-label" htmlFor="name">Your Name</label>
                     <input
+                      id="name"
                       type="text"
+                      name="name"
                       required
                       value={contactForm.name}
                       onChange={(e) => setContactForm({...contactForm, name: e.target.value})}
@@ -587,9 +611,11 @@ const Tea = () => {
                   </div>
                   
                   <div className="tea-form-group">
-                    <label className="tea-form-label">Email Address</label>
+                    <label className="tea-form-label" htmlFor="email">Email Address</label>
                     <input
+                      id="email"
                       type="email"
+                      name="email"
                       required
                       value={contactForm.email}
                       onChange={(e) => setContactForm({...contactForm, email: e.target.value})}
@@ -599,20 +625,29 @@ const Tea = () => {
                   </div>
                   
                   <div className="tea-form-group">
-                    <label className="tea-form-label">Message</label>
+                    <label className="tea-form-label" htmlFor="message">Message</label>
                     <textarea
+                      id="message"
+                      name="message"
                       required
                       rows={5}
                       value={contactForm.message}
                       onChange={(e) => setContactForm({...contactForm, message: e.target.value})}
                       className="tea-form-textarea"
-                      placeholder="Tell us about your tea preferences or ask any questions..."
+                      placeholder="Tell us about your preferences or questions..."
                     />
                   </div>
+                  
+                  {errorMessage && (
+                    <p className="tea-form-error" style={{ color: 'red', fontSize: '0.95rem' }}>
+                      {errorMessage}
+                    </p>
+                  )}
                   
                   <button
                     type="submit"
                     className="tea-form-submit-btn"
+                    aria-label="Submit contact form"
                   >
                     Send Message
                     <Send className="tea-submit-icon" />
@@ -624,87 +659,44 @@ const Tea = () => {
         </div>
       </section>
 
-      {/* Newsletter CTA Section */}
-   {/*   <section className="tea-newsletter">
-        <div className="tea-newsletter-container">
-          <div className="tea-newsletter-card">
-            <h2 className="tea-newsletter-title">
-              Join the TEA BREW Experience
-            </h2>
-            <p className="tea-newsletter-text">
-              Sign up for our newsletter and get <span className="tea-newsletter-highlight">15% off</span> your first order. Plus, be the first to know about new blends, exclusive offers, and tea brewing tips from our experts.
-            </p>
-            <div className="tea-newsletter-form">
-              <input 
-                type="email" 
-                placeholder="Enter your email address"
-                className="tea-newsletter-input"
-              />
-              <button className="tea-newsletter-btn">
-                Subscribe
-                <ArrowRight className="tea-newsletter-arrow" />
-              </button>
-            </div>
-            <p className="tea-newsletter-note">
-              🔒 We respect your privacy. Unsubscribe at any time.
-            </p>
-          </div>
-        </div>
-      </section>*/}
-
-      {/* Enhanced Footer with Animations */}
+      {/* Footer */}
       <footer className="tea-footer">
-        {/* Background Animation Elements */}
-        <div className="tea-footer-bg-elements">
-          <div className="tea-footer-bg-circle tea-footer-bg-circle-1"></div>
-          <div className="tea-footer-bg-circle tea-footer-bg-circle-2"></div>
-          <div className="tea-footer-bg-circle tea-footer-bg-circle-3"></div>
-        </div>
-        
         <div className="tea-footer-content">
-          {/* Main Footer Content */}
           <div className="tea-footer-main">
             <div className="tea-footer-grid">
-              {/* Brand Section */}
               <div className="tea-footer-brand">
                 <div className="tea-footer-brand-container">
-                  <Leaf className="tea-footer-brand-icon" />
+                  <Leaf className="tea-footer-brand-icon" aria-hidden="true" />
                   <span className="tea-footer-brand-name">TEA BREW</span>
-                  <span className="tea-footer-premium-badge">Premium</span>
                 </div>
                 <p className="tea-footer-brand-text">
-                  Crafting exceptional tea experiences since our founding. We believe in quality, sustainability, and passion in every cup. Join our community of tea lovers worldwide.
+                  Crafting premium teas and beverages in Bathinda since 2020.
                 </p>
-                
-                {/* Social Media with Hover Effects */}
                 <div className="tea-footer-social">
-                  <a href="#" className="tea-social-link tea-social-facebook">
+                  <a href="https://facebook.com" className="tea-social-link tea-social-facebook" aria-label="Follow us on Facebook">
                     <Facebook className="tea-social-icon" />
                   </a>
-                  <a href="#" className="tea-social-link tea-social-instagram">
+                  <a href="https://instagram.com" className="tea-social-link tea-social-instagram" aria-label="Follow us on Instagram">
                     <Instagram className="tea-social-icon" />
                   </a>
-                  <a href="#" className="tea-social-link tea-social-twitter">
+                  <a href="https://twitter.com" className="tea-social-link tea-social-twitter" aria-label="Follow us on Twitter">
                     <Twitter className="tea-social-icon" />
                   </a>
-                  <a href="#" className="tea-social-link tea-social-youtube">
+                  <a href="https://youtube.com" className="tea-social-link tea-social-youtube" aria-label="Follow us on YouTube">
                     <Youtube className="tea-social-icon" />
                   </a>
                 </div>
               </div>
               
-              {/* Quick Links */}
               <div className="tea-footer-links">
-                <h3 className="tea-footer-links-title">
-                  Quick Links
-                  <div className="tea-footer-title-underline"></div>
-                </h3>
+                <h3 className="tea-footer-links-title">Quick Links</h3>
                 <ul className="tea-footer-links-list">
-                  {['Our Teas', 'About Us', 'Store Locator', 'Careers', 'Press', 'Blog'].map((item, index) => (
+                  {['Menu', 'About', 'Contact'].map((item, index) => (
                     <li key={index}>
                       <a 
-                        href="#" 
+                        href={`#${item.toLowerCase()}`}
                         className="tea-footer-link"
+                        aria-label={`Navigate to ${item} section`}
                       >
                         <span className="tea-footer-link-text">{item}</span>
                       </a>
@@ -713,85 +705,34 @@ const Tea = () => {
                 </ul>
               </div>
               
-              {/* Customer Care */}
               <div className="tea-footer-links">
-                <h3 className="tea-footer-links-title">
-                  Customer Care
-                  <div className="tea-footer-title-underline"></div>
-                </h3>
+                <h3 className="tea-footer-links-title">Contact</h3>
                 <ul className="tea-footer-links-list">
-                  {['Help Center', 'Contact Support', 'Shipping Info', 'Returns & Exchanges', 'Size Guide', 'Track Order'].map((item, index) => (
-                    <li key={index}>
-                      <a 
-                        href="#" 
-                        className="tea-footer-link"
-                      >
-                        <span className="tea-footer-link-text">{item}</span>
-                      </a>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-              
-              {/* Company Info */}
-              <div className="tea-footer-links">
-                <h3 className="tea-footer-links-title">
-                  Company
-                  <div className="tea-footer-title-underline"></div>
-                </h3>
-                <ul className="tea-footer-links-list">
-                  {['Our Story', 'Sustainability', 'Partnerships', 'Wholesale', 'Affiliate Program', 'Gift Cards'].map((item, index) => (
-                    <li key={index}>
-                      <a 
-                        href="#" 
-                        className="tea-footer-link"
-                      >
-                        <span className="tea-footer-link-text">{item}</span>
-                      </a>
-                    </li>
-                  ))}
+                  <li>
+                    <a href="tel:+917973137104" className="tea-footer-link">
+                      <span className="tea-footer-link-text">+91 7973137104</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="tel:+916283946618" className="tea-footer-link">
+                      <span className="tea-footer-link-text">+91 6283946618</span>
+                    </a>
+                  </li>
+                  <li>
+                    <span className="tea-footer-link-text">Bathinda</span>
+                  </li>
                 </ul>
               </div>
             </div>
-            
-            {/* Newsletter Section in Footer */}
-           {/*<div className="tea-footer-newsletter">
-              <div className="tea-footer-newsletter-container">
-                <h3 className="tea-footer-newsletter-title">Stay Steeped in the Latest</h3>
-                <p className="tea-footer-newsletter-text">Get brewing tips, new product launches, and exclusive offers delivered to your inbox.</p>
-                <div className="tea-footer-newsletter-form">
-                  <input 
-                    type="email" 
-                    placeholder="your.email@example.com"
-                    className="tea-footer-newsletter-input"
-                  />
-                  <button className="tea-footer-newsletter-btn">
-                    Subscribe
-                    <Send className="tea-footer-newsletter-icon" />
-                  </button>
-                </div>
-              </div>
-            </div>*/}
           </div>
           
-          {/* Bottom Footer */}
           <div className="tea-footer-bottom">
             <div className="tea-footer-bottom-content">
               <div className="tea-footer-copyright">
-                © 2025 TEA BREW. All rights reserved. | 
-                <a href="#" className="tea-footer-legal-link">Privacy Policy</a> | 
-                <a href="#" className="tea-footer-legal-link">Terms of Service</a> | 
-                <a href="#" className="tea-footer-legal-link">Cookie Policy</a>
-              </div>
-              <div className="tea-footer-settings">
-                <span className="tea-footer-setting">
-                  <Globe className="tea-footer-setting-icon" />
-                  English (US)
-                </span>
-                <span>🇺🇸 USD</span>
+                © 2025 TEA BREW. All rights reserved.
               </div>
             </div>
-          </div>
+          </div> 
         </div>
       </footer>
     </div>
